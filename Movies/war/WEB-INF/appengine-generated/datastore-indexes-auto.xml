@@ -1,29 +1,4 @@
-<!-- Indices written at Sun, 28 Sep 2014 23:25:46 EDT -->
+<!-- Indices written at Sun, 28 Sep 2014 23:42:30 EDT -->
 
-<datastore-indexes>
+<datastore-indexes/>
 
-    <!-- Used 2 times in query history -->
-    <datastore-index kind="MOVIE" ancestor="false" source="auto">
-        <property name="DIRECTOR" direction="asc"/>
-        <property name="TITLE" direction="desc"/>
-        <property name="RELEASE_YEAR" direction="desc"/>
-    </datastore-index>
-
-    <!-- Used 2 times in query history -->
-    <datastore-index kind="MOVIE" ancestor="false" source="auto">
-        <property name="COMPANY" direction="asc"/>
-        <property name="TITLE" direction="desc"/>
-        <property name="RELEASE_YEAR" direction="desc"/>
-    </datastore-index>
-
-    <!-- Used 6 times in query history -->
-    <datastore-index kind="NOMINATED" ancestor="false" source="auto">
-        <property name="CATEGORY" direction="asc"/>
-        <property name="MOVIE_TITLE" direction="asc"/>
-        <property name="MOVIE_YEAR" direction="asc"/>
-        <property name="EVENT" direction="asc"/>
-        <property name="EVENT_YEAR" direction="desc"/>
-        <property name="WON" direction="desc"/>
-    </datastore-index>
-
-</datastore-indexes>

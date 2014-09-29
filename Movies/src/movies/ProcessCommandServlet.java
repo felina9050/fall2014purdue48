@@ -407,9 +407,9 @@ public class ProcessCommandServlet extends HttpServlet {
         	String company_name = commandEls[1];
         	
         	Filter filter = new FilterPredicate("COMPANY",FilterOperator.EQUAL,company_name);
-        	Query q = new Query("MOVIE").setFilter(filter)
-        			.addSort("TITLE", SortDirection.DESCENDING)
-        			.addSort("RELEASE_YEAR", SortDirection.DESCENDING);
+        	Query q = new Query("MOVIE").setFilter(filter);
+        			//.addSort("TITLE", SortDirection.DESCENDING)
+        			//.addSort("RELEASE_YEAR", SortDirection.DESCENDING);
         	PreparedQuery pq = datastore.prepare(q);
         	
         	results = "";
@@ -424,9 +424,9 @@ public class ProcessCommandServlet extends HttpServlet {
         	String director_name = commandEls[1];
         	
         	Filter filter = new FilterPredicate("DIRECTOR",FilterOperator.EQUAL,director_name);
-        	Query q = new Query("MOVIE").setFilter(filter)
-        			.addSort("TITLE", SortDirection.DESCENDING)
-        			.addSort("RELEASE_YEAR", SortDirection.DESCENDING);
+        	Query q = new Query("MOVIE").setFilter(filter);
+        		//	.addSort("TITLE", SortDirection.DESCENDING)
+        		//	.addSort("RELEASE_YEAR", SortDirection.DESCENDING);
         	PreparedQuery pq = datastore.prepare(q);
         	
         	results = "";
@@ -467,11 +467,11 @@ public class ProcessCommandServlet extends HttpServlet {
         				
         	} 	
         	Filter filterNew = CompositeFilterOperator.or(filterSub);
-        	Query qNew = new Query("NOMINATED").setFilter(filterNew)
-    				.addSort("EVENT", SortDirection.ASCENDING)
-    				.addSort("EVENT_YEAR", SortDirection.DESCENDING)
-    				.addSort("CATEGORY", SortDirection.ASCENDING)
-    				.addSort("WON", SortDirection.DESCENDING);
+        	Query qNew = new Query("NOMINATED").setFilter(filterNew);
+    			//	.addSort("EVENT", SortDirection.ASCENDING)
+        		//	.addSort("EVENT_YEAR", SortDirection.DESCENDING)
+    			//	.addSort("CATEGORY", SortDirection.ASCENDING)
+    			//	.addSort("WON", SortDirection.DESCENDING);
     		PreparedQuery pqNew = datastore.prepare(qNew);
     		results = "";
     		for(Entity resultNew : pqNew.asIterable()){
@@ -497,9 +497,9 @@ public class ProcessCommandServlet extends HttpServlet {
         		filterSub.add(CompositeFilterOperator.and(filter1,filter2,filter3));
         	}
         	Filter filterNew = CompositeFilterOperator.or(filterSub);
-        	Query qNew = new Query("MOVIE").setFilter(filterNew)
-    				.addSort("TITLE", SortDirection.ASCENDING)
-    				.addSort("RELEASE_YEAR", SortDirection.DESCENDING);
+        	Query qNew = new Query("MOVIE").setFilter(filterNew);
+    			//	.addSort("TITLE", SortDirection.ASCENDING)
+    			//	.addSort("RELEASE_YEAR", SortDirection.DESCENDING);
     		PreparedQuery pqNew = datastore.prepare(qNew);
     		results = "";
     		for(Entity resultNew : pqNew.asIterable()){
@@ -509,7 +509,7 @@ public class ProcessCommandServlet extends HttpServlet {
         	
         }
         
-      ////how to get number of keys of nominated(pq's length), how to get distinct entity/property
+   
         else if(commandEls[0].equals( "get_number_of_nominations_for_movie" )){ 
         	String movie_title = commandEls[1];
         	String release_year = commandEls[2];
@@ -570,7 +570,7 @@ public class ProcessCommandServlet extends HttpServlet {
   
         }
         
-        ////method for pq is null
+      
         else if(commandEls[0].equals( "delete_company" )){ 
         	String company_name = commandEls[1];
 
